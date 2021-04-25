@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% block title %}{{ post.title_tag}}
+{% endblock %}
+
+{% block content%}
+<div class="edit-title">
+    <h1> Zamierzasz usunąć następujący wpis {{ post.title }} </h1>
+    <h2> Czy jesteś pewien, że chcesz usunąć ten wpis? Po usunięciu wpisu, nie będzie można go odzyskać.</h2>
+</div>
+
+
+<form class="edit-form" method="POST">
+    {% csrf_token %}
+
+   
+   
+
+    <button class="btn btn-secondary">Usuń wpis
+
+    </button>
+
+</form>
+
+{% endblock %}

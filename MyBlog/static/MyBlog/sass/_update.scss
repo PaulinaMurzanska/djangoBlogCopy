@@ -1,0 +1,72 @@
+.edit-title {
+    text-align: center;
+    margin: 40px auto;
+    width: 70%;
+
+    h1 {
+        @include fluid-type(20px, 32px);
+        color: $RegularTextColor;
+        font-weight: 400;
+    }
+
+    h2 {
+        @include fluid-type(14px, 16px);
+        color: $RegularTextColor;
+        font-weight: 200;
+    }
+}
+
+.edit-form {
+    width: 90%;
+    margin: 30px auto;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    .django-ckeditor-widget {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    p {
+        padding: 8px 20px;
+        display: flex;
+        border-bottom: 2px solid $ThemeColorSecond;
+
+
+
+        label {
+            width: 15%;
+            text-align: right;
+            padding-right: 10px;
+            border-bottom: 1px solid $RegularTextColor;
+            border-right: 1px solid $RegularTextColor;
+            background-color: $ThemeColorSecond;
+        }
+
+        input {
+            border: none;
+            width: 85%;
+            padding: 0 15px;
+
+            &:focus {
+                outline: none;
+                background-color: $RegularTextColor;
+                color: $ThemeColorSecond;
+            }
+        }
+
+        select {
+            border: none;
+            width: 85%;
+            padding: 0 15px;
+
+            &:focus {
+                outline: none;
+                background-color: $RegularTextColor;
+                color: $ThemeColorSecond;
+            }
+        }
+    }
+}

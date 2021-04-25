@@ -1,0 +1,12 @@
+.container {
+  width: 1170px;
+  @media (max-width: 700px) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.body {
+  font-family: $MainFontFamily;
+  @include fluid-type(10px, 15px);
+}

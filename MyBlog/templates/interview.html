@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block title %}{{ post.title_tag}} {% endblock %} {%
+block content%}
+
+<div class="wchich-category">Wpisy w kategorii Wywiady</div>
+<ul class="posts-display">
+  {% for post in recent6 %}
+  <li>
+    <span>{{ post.published|date:"d E Y" }}</span>
+    <div class="title">
+      <a href="{% url 'details' post.pk %}">{{ post.title }}</a>
+    </div>
+    <small>Kategoria: {{ post.category }}</small>
+    <div class="photo">
+      <img src="{{ post.image.url}}" alt="pic" />
+    </div>
+    <div class="text">
+      <p>{{ post.content|slice:":200"|safe }}...</p>
+    </div>
+
+    <span>
+      Autor: {{ post.author.first_name }} {{ post.author.last_name }}
+    </span>
+    <div class="btn">
+      <a href="{% url 'details' post.pk %}">Czytaj Więcej</a>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+<ul class="posts-display all">
+  {% for post in all %}
+  <li>
+    <span>{{ post.published|date:"d E Y" }}</span>
+    <div class="title">
+      <a href="{% url 'details' post.pk %}">{{ post.title }}</a>
+    </div>
+    <small>Kategoria: {{ post.category }}</small>
+    <div class="photo">
+      <img src="{{ post.image.url}}" alt="pic" />
+    </div>
+    <div class="text">
+      <p>{{ post.content|slice:":200"|safe }}...</p>
+    </div>
+
+    <span>
+      Autor: {{ post.author.first_name }} {{ post.author.last_name }}
+    </span>
+    <div class="btn">
+      <a href="{% url 'details' post.pk %}">Czytaj Więcej</a>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+<div class="extend">
+  <div class="more">
+    <div class="btn show_more">Wyświetl wszytskie posty</div>
+  </div>
+  <div class="less">
+    <div class="btn show_less">Wyświetl najnowsze</div>
+  </div>
+</div>
+
+{% endblock %}

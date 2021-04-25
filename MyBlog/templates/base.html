@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'MyBlog/sass/main.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{% block title%} Enjoy your stay{% endblock %}</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="site-title">
+          <h1>Enjoy your stay !</h1>
+          <h3>O Hotelech i podróżach. Z pasją.</h3>
+        </div>
+        <div class="top-menu">
+          <ul class="main-menu-list">
+            <li>
+              <a href="{% url 'index' %}">home</a>
+            </li>
+
+            <li>
+              <a href="{% url 'hotel' %}">hotelarstwo</a>
+            </li>
+            <li>
+              <a href="{% url 'restaurant' %}">Restauracje</a>
+            </li>
+            <li>
+              <a href="{% url 'interview' %}">Wywiady</a>
+            </li>
+
+            {% if user.is_authenticated %}
+            <li>
+              <a href=" {% url 'create' %}">Dodaj wpis</a>
+            </li>
+            <li>
+              <a href="{% url 'logout' %}">logout</a>
+            </li>
+            <li>
+              <a href="{% url 'admin:index' %}">admin</a>
+            </li>
+
+            {% else %}
+            <li>
+              <a href="{% url 'register' %}">Zarejestruj konto</a>
+            </li>
+            <li>
+              <a href="{% url 'login' %}">login</a>
+            </li>
+
+            {% endif %}
+          </ul>
+          <div class="hamburger-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="close-btn">
+            <i class="fas fa-times"></i>
+          </div>
+          <div class="menu-hidden">
+            <div class="offer-vertical">
+              <ul class="hidden-list">
+                <li>
+                  <a href="{% url 'index' %}">home</a>
+                </li>
+
+                <li>
+                  <a href="{% url 'hotel' %}">hotelarstwo</a>
+                </li>
+                <li>
+                  <a href="{% url 'restaurant' %}">Restauracje</a>
+                </li>
+                <li>
+                  <a href="{% url 'interview' %}">Wywiady</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                <li>
+                  <a href=" {% url 'create' %}">Dodaj wpis</a>
+                </li>
+                <li>
+                  <a href="{% url 'logout' %}">logout</a>
+                </li>
+                <li>
+                  <a href="{% url 'admin:index' %}">admin</a>
+                </li>
+
+                {% else %}
+                <li>
+                  <a href="{% url 'register' %}">Zarejestruj konto</a>
+                </li>
+                <li>
+                  <a href="{% url 'login' %}">login</a>
+                </li>
+
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+          <div class="user">
+            <small>
+              {% if user.is_authenticated %} Jesteś zalogowany jako: {{ user }}
+              {%else%} Nie jesteś zalogowany {% endif %}
+            </small>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">{% block content%} {% endblock %}</div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="site-footer">
+          <p>
+            Projekt oparty na stronie
+            <i>
+              <a href="http://www.enjoyyourstay.pl/" target="blank"
+                >enjoyyourstay.pl</a
+              >
+            </i>
+          </p>
+          <p>
+            Wykonanie Paulina Murzańska |
+            <a href="https://github.com/PaulinaMurzanska" target="blank"
+              >GitHub</a
+            >
+          </p>
+          <small>Jan 2021</small>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{% static 'MyBlog/js/jquery.js' %}"></script>
+    <script src="{% static 'MyBlog/js/app.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+.container {
+
+
+    .action-btns {
+        margin: 10px 0;
+        text-align: right;
+
+        a {
+            padding: 5px 10px;
+            text-transform: uppercase;
+            font-size: 10px;
+            color: $RegularTextColor;
+            font-weight: 700;
+
+            &:hover {
+                font-size: 11px;
+                transition: 0.4s;
+                background-color: $ThemeColor;
+                color: $ThemeColorSecond;
+            }
+        }
+    }
+
+    .post-title {
+        text-align: center;
+        margin: 40px auto;
+        width: 70%;
+
+        h1 {
+            @include fluid-type(20px, 32px);
+            color: $RegularTextColor;
+            font-weight: 400;
+        }
+
+
+    }
+
+    .post-content {
+        padding: 30px;
+
+
+        .container-details {
+            width: 100%;
+            margin: 0 auto;
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+    }
+}

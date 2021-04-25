@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title_tag}}
+{% endblock %}
+
+{% block content%}
+{% if user.is_authenticated %}
+<div class="action-btns">
+    <a href=" {% url 'update' post.pk %}">Edytuj wpis</a>
+    <a href=" {% url 'delete' post.pk %}">Usuń wpis</a>
+</div>
+{% endif %}
+<div class="post-title">
+    <h1>
+        {{ post.title }}
+    </h1>
+
+</div>
+<div class="post-content">
+    <div class="container-details">
+        {{ post.content|safe }}
+    </div>
+    <a href="{% url 'index' %}" class="btn btn-secondary">Powrót</a>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <form action="{% url 'like_post' post.pk %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn btn-primary btn-sm">like</button>
+    </form>
+    {% endblock %}
+
+</div>

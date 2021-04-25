@@ -1,0 +1,229 @@
+body {
+  padding: 0 3%;
+  @media (max-width: 700px) {
+    padding: 0;
+  }
+
+  header {
+    width: 100%;
+
+    .site-title {
+      width: 100%;
+      background-color: $ThemeColor;
+      color: $OnBackgroundColor;
+      font-family: $MainFontFamily;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 20px;
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .top-menu {
+      position: relative;
+      margin-bottom: 20px;
+      @media (max-width: 700px) {
+        height: 40px;
+      }
+
+      .main-menu-list {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0;
+        margin-top: 10px;
+        @media (max-width: 700px) {
+          display: none;
+        }
+
+        li {
+          width: 100%;
+          padding: 15px 0;
+          text-align: center;
+          background-color: $ThemeColorSecond;
+          border-right: 1px solid $ThemeColor;
+          color: $ThemeColor;
+          text-transform: uppercase;
+          font-weight: 600;
+
+          @include fluid-type(10px, 14px);
+
+          &:last-child {
+            border-right: none;
+          }
+
+          a {
+            text-decoration: none;
+            color: $ThemeColor;
+          }
+
+          &:hover {
+            color: $OnBackgroundColor;
+            background-color: $ThemeColor;
+            transition: 0.3s;
+          }
+
+          &:hover a {
+            color: $OnBackgroundColor;
+          }
+        }
+      }
+      .hamburger-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 25px;
+        font-size: 1.5rem;
+        color: black;
+        display: none;
+        z-index: 5;
+        &.hide {
+          display: none;
+        }
+
+        @media (max-width: 700px) {
+          display: block;
+        }
+      }
+      .close-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 25px;
+        font-size: 1.5rem;
+        color: black;
+        display: none;
+        &.open {
+          display: block;
+          @media (min-width: 700px) {
+            display: none;
+          }
+        }
+      }
+      .menu-hidden {
+        width: 60vw;
+        height: auto;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        display: none;
+        background-color: #000;
+        padding: 15px 15px 10px;
+        z-index: 3;
+        box-shadow: 0px 0px 3px 1px #a4a4a4;
+        @media (max-width: 700px) {
+          width: 90vw;
+        }
+
+        &.open {
+          display: block;
+
+          @media (min-width: 700px) {
+            display: none;
+          }
+        }
+        .hidden-list {
+          list-style-type: none;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          justify-content: space-evenly;
+          align-items: flex-start;
+          padding: 0;
+          margin-bottom: 5px;
+          li {
+            width: 100%;
+            padding: 15px 0;
+            text-align: center;
+            background-color: $ThemeColorSecond;
+            border-bottom: 1px solid $ThemeColor;
+            color: $ThemeColor;
+            text-transform: uppercase;
+            font-weight: 600;
+            @include fluid-type(10px, 14px);
+
+            a {
+              text-decoration: none;
+              color: $ThemeColor;
+            }
+
+            &:hover {
+              color: $OnBackgroundColor;
+              background-color: $ThemeColor;
+              transition: 0.3s;
+            }
+
+            &:hover a {
+              color: $OnBackgroundColor;
+            }
+          }
+        }
+      }
+      .user {
+        text-align: right;
+        padding-right: 5px;
+        position: absolute;
+        top: 100%;
+        right: 0px;
+        @media (max-width: 700px) {
+          top: 10px;
+          left: 10px;
+          text-align: left;
+        }
+
+        small {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  main {
+    width: 100%;
+    @media (max-width: 700px) {
+      padding: 10px;
+    }
+  }
+
+  footer {
+    width: 100%;
+
+    .container {
+      .site-footer {
+        width: 100%;
+        height: 100px;
+        background-color: $ThemeColor;
+        color: $OnBackgroundColor;
+        font-family: $MainFontFamily;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        p {
+          font-size: 10px;
+          text-transform: uppercase;
+          line-height: 0.5em;
+
+          a {
+            text-decoration: none;
+            color: $ThemeColorSecond;
+
+            &:hover {
+              color: green;
+            }
+          }
+        }
+
+        small {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}

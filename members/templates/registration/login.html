@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title%} Logowanie {% endblock %}
+
+{% block content%}
+<div class="edit-title">
+    <h1> Logowanie użytkownika </h1>
+</div>
+
+
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-secondary">Zaloguj
+
+    </button>
+
+</form>
+
+{% endblock %}
